@@ -10,16 +10,16 @@
  */
 class Solution {
 public:
-    //Iterative
-    ListNode* reverseList(ListNode* head) {
-        ListNode* prev = NULL;
-        ListNode* curr = head;
-        while(curr!=NULL){
-            ListNode* next = curr->next;
-            curr->next = prev ;
-            prev = curr ;
-            curr = next;
+    //Recursion
+    ListNode* reverseList(ListNode* node) {
+         if(node==NULL || node->next == NULL){
+            return node;
         }
-        return prev;
+
+        ListNode* head =reverseList(node->next);
+        ListNode* nextNode = node->next;
+        nextNode->next = node;
+        node->next = NULL;
+        return head;
     }
 };
