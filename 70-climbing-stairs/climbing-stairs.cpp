@@ -12,11 +12,9 @@ public:
         if(n<=2)
         return n;
         int f=1,s=2;
-
         for(int i=3;i<=n;i++){
-           int temp = f;
-           f=s;
-           s=f+temp;
+           s=s+f;
+           f=s-f;
         }
         return s;
     }
